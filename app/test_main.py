@@ -14,5 +14,5 @@ def test_detect_lang():
         "/detect_language",
         json={"text": "Campa cavallo che l erba cresce"},
     )
-    assert response.status_code == 200
+    assert result.status_code == 200
     assert result.json()[0]['lang'] == 'it'
