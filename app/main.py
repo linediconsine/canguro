@@ -23,3 +23,13 @@ def detect_language(data: SourceText):
     detected_lang = detect_langs(data.text)
     logger.info(f"Detected {detected_lang[0]} on  '{data.text[:40]}'")
     return detected_lang
+
+
+@app.get('/health',
+         responses={200: {'model': Response}},
+         description="Microservice heality check",
+         tags=["utility"])
+def healty():
+    if detect_langs("Campa cavallo che l erba cresce")[0].lang == 'it':
+        return {"status": True}
+    return {"status": False}
