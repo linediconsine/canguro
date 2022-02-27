@@ -1,20 +1,16 @@
-import pathlib
+import logging
 
 from langdetect import detect_langs
-from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
 from fastapi import (
-    FastAPI,
-    Request,
+    FastAPI
 )
-
 from app.interface import SourceText, Response
 
-BASE_DIR = pathlib.Path(__file__).parent
-
-app = FastAPI()
-templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
-
+logging.basicConfig(filename="production.log",
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 app = FastAPI(redoc_url="/", docs_url=None)
 
@@ -24,4 +20,6 @@ app = FastAPI(redoc_url="/", docs_url=None)
           description="Detect language used, return \n  supports 55 languages, response is in (ISO 639-1 codes):",
           tags=[])
 def detect_language(data: SourceText):
-    return detect_langs(data.text)
+    detected_lang = detect_langs(data.text)
+    logger.info(f"Detected {detected_lang[0]} on  '{data.text[:40]}'")
+    return detected_lang
