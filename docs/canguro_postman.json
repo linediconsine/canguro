@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "6435fffb-5247-4929-8520-02142d3d99c6",
+		"name": "Canguro a simple micro-service setup in FastAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "detect a lenguage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\" : \"Campa cavallo che l erba cresce\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/detect_language",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"detect_language"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
