@@ -1,12 +1,3 @@
-# canguro
-A proof of concept for a FastAPI micro service
-
-setup:
-pip install -r requirements.txt
-
-start:
-uvicorn app.main:app --reload
-
 # Canguro
 
 A proof of concept for a FastAPI micro service
