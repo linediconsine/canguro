@@ -9,10 +9,16 @@
 			"name": "detect a lenguage",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-MD5",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"text\" : \"Campa cavallo che l erba cresce\"\n}",
+					"raw": "{\n    \"text\" : \"Tutti i pesci del genere Hippocampus presentano le identiche caratteristiche fisiche e si distinguono dal resto dei pesci. Essi non nuotano all’indietro e la struttura fisica è incentrata su un asse verticale anziché orizzontale, quindi i cavallucci marini hanno posizione eretta, anche se durante il nuoto assumono una posizione più idrodinamica, avanzata. Un collo arcuato posiziona la testa in avanti, dalla caratteristica forma equina e con un muso allungato e tubolare. Le pinne pettorali (se presenti) sono posizionate come sempre dopo le aperture branchiali, ma la particolare forma fisica le fa somigliare più a delle orecchie equine. Il dorso è poco pronunciato, con una pinna dorsale mentre il profilo ventrale è particolarmente arcuato. La pinna caudale in realtà è un prolungamento del corpo, è mobile e prensile, usata come arto e come sostegno. Durante il nuoto spesso è arrotolata su sé stessa. L'intero corpo è rafforzato da una corazza ossea, in molte specie arricchita da spigoli e aculei che rendono il cavalluccio marino una preda poco appetitosa. Caratteristici sono degli spigoli sopraoculari e una corona ossea intorno alla testa. In molte specie la struttura della corazza ossea accentua il già elevato mimetismo della colorazione.Le dimensioni variano da specie a specie, come anche la livrea. Possiedono anche la vescica natatoria, organo che funge da serbatoio contenente una miscela di ossigeno e altri gas, che permette il galleggiamento (controllo della propria posizione nella colonna d'acqua).\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -31,6 +37,213 @@
 					"port": "8000",
 					"path": [
 						"detect_language"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "detect a lenguage (JP)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-MD5",
+								"value": "application/json; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\" : \"日本語 話す\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/detect_language",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"detect_language"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Feb 2022 14:19:58 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "81"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"lang\": \"ja\",\n        \"prob\": 0.5714279985657342\n    },\n    {\n        \"lang\": \"ko\",\n        \"prob\": 0.4285705807562179\n    }\n]"
+				},
+				{
+					"name": "detect a lenguage (DE)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-MD5",
+								"value": "application/json; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\" : \"Es freut mich, dich kennenzulernen.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/detect_language",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"detect_language"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Feb 2022 14:21:58 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "41"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"lang\": \"de\",\n        \"prob\": 0.9999965266570159\n    }\n]"
+				},
+				{
+					"name": "detect a lenguage (IT) (long text)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-MD5",
+								"value": "application/json; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\" : \"Tutti i pesci del genere Hippocampus presentano le identiche caratteristiche fisiche e si distinguono dal resto dei pesci. Essi non nuotano all’indietro e la struttura fisica è incentrata su un asse verticale anziché orizzontale, quindi i cavallucci marini hanno posizione eretta, anche se durante il nuoto assumono una posizione più idrodinamica, avanzata. Un collo arcuato posiziona la testa in avanti, dalla caratteristica forma equina e con un muso allungato e tubolare. Le pinne pettorali (se presenti) sono posizionate come sempre dopo le aperture branchiali, ma la particolare forma fisica le fa somigliare più a delle orecchie equine. Il dorso è poco pronunciato, con una pinna dorsale mentre il profilo ventrale è particolarmente arcuato. La pinna caudale in realtà è un prolungamento del corpo, è mobile e prensile, usata come arto e come sostegno. Durante il nuoto spesso è arrotolata su sé stessa. L'intero corpo è rafforzato da una corazza ossea, in molte specie arricchita da spigoli e aculei che rendono il cavalluccio marino una preda poco appetitosa. Caratteristici sono degli spigoli sopraoculari e una corona ossea intorno alla testa. In molte specie la struttura della corazza ossea accentua il già elevato mimetismo della colorazione.Le dimensioni variano da specie a specie, come anche la livrea. Possiedono anche la vescica natatoria, organo che funge da serbatoio contenente una miscela di ossigeno e altri gas, che permette il galleggiamento (controllo della propria posizione nella colonna d'acqua).\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/detect_language",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"detect_language"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Feb 2022 14:23:14 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "41"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"lang\": \"it\",\n        \"prob\": 0.9999967130729581\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/health",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"health"
 					]
 				}
 			},

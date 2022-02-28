@@ -1,10 +1,12 @@
-import logging
-
-from langdetect import detect_langs
 from fastapi import (
     FastAPI
 )
-from app.interface import SourceText, Response
+import logging
+from langdetect import detect_langs
+
+from app.interface import SourceText, Response, HealthStatus
+
+app = FastAPI(redoc_url="/", docs_url=None)
 
 logging.basicConfig(filename="production.log",
                     format='%(asctime)s %(message)s',
@@ -12,12 +14,10 @@ logging.basicConfig(filename="production.log",
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
-app = FastAPI(redoc_url="/", docs_url=None)
-
 
 @app.post('/detect_language',
           responses={200: {'model': Response}},
-          description="Detect language used, return \n  supports 55 languages, response is in (ISO 639-1 codes):",
+          description="Detect language used, return \n supports 55 languages, response is in (ISO 639-1 codes):",
           tags=[])
 def detect_language(data: SourceText):
     detected_lang = detect_langs(data.text)
@@ -26,10 +26,10 @@ def detect_language(data: SourceText):
 
 
 @app.get('/health',
-         responses={200: {'model': Response}},
+         responses={200: {'model': HealthStatus}},
          description="Microservice heality check",
          tags=["utility"])
-def healty():
+def health():
     if detect_langs("Campa cavallo che l erba cresce")[0].lang == 'it':
         return {"status": True}
     return {"status": False}
